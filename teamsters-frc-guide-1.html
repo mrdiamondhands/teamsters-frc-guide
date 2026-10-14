@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Teamsters Local 150 FRC-PIRMI Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(160deg, #0c0c0e 0%, #1a1a1f 50%, #0f0f12 100%);
+    color: #e8e6e3;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(90deg, #111114, #1c1c22);
+    padding: 24px 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+  header h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #f5f0e6;
+    letter-spacing: 0.5px;
+  }
+  header p { margin: 6px 0 0; font-size: 0.85rem; color: #c9c4b8; font-weight: 400; letter-spacing: 0.3px; }
+  nav {
+    display: flex;
+    overflow-x: auto;
+    background: rgba(17, 17, 20, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 10px 6px;
+    gap: 6px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    -webkit-overflow-scrolling: touch;
+  }
+  nav button {
+    background: rgba(30, 30, 36, 0.8);
+    color: #d4cfc5;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 12px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.2px;
+    min-height: 44px;
+  }
+  nav button:hover { background: rgba(45, 45, 52, 0.9); border-color: rgba(212, 175, 55, 0.4); }
+  nav button.active {
+    background: linear-gradient(135deg, #8b7355, #d4af37);
+    color: #0c0c0e;
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+    font-weight: 600;
+  }
+  main { padding: 16px 12px 40px; max-width: 820px; margin: 0 auto; }
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .card {
+    background: rgba(24, 24, 28, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  }
+  .card h2 { margin-top: 0; color: #f5f0e6; font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; }
+  .card h3 { color: #d4af37; font-size: 1.05rem; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.2px; }
+  .contact { margin: 10px 0; padding: 14px; background: rgba(12, 12, 14, 0.6); border-radius: 12px; border-left: 3px solid #d4af37; }
+  .contact strong { color: #e8d5a3; }
+  .weingarten {
+    background: linear-gradient(135deg, #f8f4ec, #efe6d4);
+    color: #1a1612;
+    padding: 20px;
+    border-radius: 14px;
+    font-weight: 500;
+    border-left: 4px solid #d4af37;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.12);
+  }
+  button.action, .btn {
+    background: linear-gradient(135deg, #8b7355, #c9a227);
+    color: #0c0c0e;
+    border: none;
+    padding: 16px 18px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(201, 162, 39, 0.25);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+    min-height: 52px;
+  }
+  button.action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.4);
+  }
+  button.action:active { transform: translateY(0); }
+  button.action::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+  }
+  button.action:hover::after { left: 100%; }
+  input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 6px 0 14px;
+    background: rgba(12, 12, 14, 0.7);
+    color: #e8e6e3;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    min-height: 48px;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+  .points {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #e8d5a3;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+    animation: pulse 2.8s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { text-shadow: 0 0 12px rgba(212, 175, 55, 0.4); }
+    50% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.7); }
+  }
+  .timeline { border-left: 3px solid #d4af37; padding-left: 20px; margin: 18px 0; }
+  .timeline div { margin-bottom: 16px; position: relative; }
+  .timeline div::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    background: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    animation: glow 2.2s infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
+    to { box-shadow: 0 0 16px rgba(212, 175, 55, 0.9); }
+  }
+  .warning { background: rgba(80, 30, 30, 0.55); padding: 14px; border-radius: 12px; margin: 12px 0; border-left: 3px solid #c9a227; }
+  .success { background: rgba(30, 50, 40, 0.55); padding: 14px; border-radius: 12px; margin: 12px 0; border-left: 3px solid #d4af37; }
+  .article { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(212, 175, 55, 0.12); }
+  .article:last-child { border-bottom: none; }
+  footer { text-align: center; padding: 28px; font-size: 0.8rem; color: #8a8478; letter-spacing: 0.2px; }
+  a { color: #d4af37; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Teamsters_Union_Logo.svg/200px-Teamsters_Union_Logo.svg.png" alt="Teamsters Local 150" style="width:52px; height:auto; filter: drop-shadow(0 0 6px rgba(212,175,55,0.4));" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div style="display:none; width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#8b7355,#d4af37); align-items:center; justify-content:center; font-weight:700; color:#0c0c0e; font-size:0.95rem; box-shadow:0 0 12px rgba(212,175,55,0.4);">150</div>
+    <h1 style="margin:0;">Teamsters Local 150</h1>
+  </div>
+  <p>FRC-PIRMI Member Guide • Woodland Facility</p>
+</header>
+
+<nav>
+  <button onclick="show('home')" class="active">Home</button>
+  <button onclick="show('howto')">How to Handle</button>
+  <button onclick="show('scenarios')">Scenarios</button>
+  <button onclick="show('wages')">Wages</button>
+  <button onclick="show('safety')">Safety</button>
+  <button onclick="show('breaks')">Breaks</button>
+  <button onclick="show('drug')">Drug Testing</button>
+  <button onclick="show('notes')">Notes</button>
+  <button onclick="show('unionrules')">Union Rules</button>
+  <button onclick="show('weingarten')">Weingarten</button>
+  <button onclick="show('grievance')">Grievance</button>
+  <button onclick="show('contract')">Contract</button>
+  <button onclick="show('attendance')">Attendance</button>
+  <button onclick="show('contacts')">Contacts</button>
+  <button onclick="show('leadership')">Leadership</button>
+  <button onclick="show('dues')">Dues & Benefits</button>
+  <button onclick="show('ratings')">Rate Management</button>
+  <button onclick="show('generator')">Grievance Note</button>
+</nav>
+
+<main>
+  <!-- HOME -->
+  <div id="home" class="section active">
+    <div class="card">
+      <h2>Quick Actions</h2>
+      <p>Use this guide when you have an issue at work. Always contact a steward first for formal representation.</p>
+      <button class="action" onclick="show('howto')">How to Handle an Issue</button>
+      <button class="action" onclick="show('scenarios')">Common Scenarios</button>
+      <button class="action" onclick="show('wages')">Wage Lookup</button>
+      <button class="action" onclick="show('safety')">Safety Rules</button>
+      <button class="action" onclick="show('weingarten')">Weingarten Statement</button>
+      <button class="action" onclick="show('contacts')">Call a Steward</button>
+      <button class="action" onclick="show('leadership')">Union Leadership</button>
+      <button class="action" onclick="show('dues')">Dues & Benefits</button>
+      <button class="action" onclick="show('ratings')">Rate Management</button>
+      <button class="action" onclick="show('generator')">Generate Grievance Note</button>
+      <button class="action" onclick="show('notes')">Private Notes</button>
+      <button class="action" onclick="show('unionrules')">Union Rules & Rights</button>
+    </div>
+    <div class="card">
+      <h2>Important Reminders</h2>
+      <ul>
+        <li>Request a steward before any meeting that could lead to discipline.</li>
+        <li>Document everything — dates, times, witnesses, what was said.</li>
+        <li>Grievance timelines are short (often 5–10 working days). Do not wait.</li>
+        <li>Verify any company claim (points, rates, rules) with your steward before accepting it.</li>
+        <li>This tool is for information only. Your steward and the CBA control your rights.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOW TO HANDLE -->
+  <div id="howto" class="section">
+    <div class="card">
+      <h2>How to Address a Workplace Issue</h2>
+      <p>Follow these steps from the moment something happens until you get help. Act quickly — grievance timelines are short.</p>
+
+      <div class="timeline">
+        <div>
+          <strong>1. Document immediately</strong><br>
+          Write down the date, time, what happened, who was involved, what was said, and any witnesses. Take photos of any written notice or form. Keep your own copy.
+        </div>
+        <div>
+          <strong>2. If management calls you into a meeting</strong><br>
+          Ask what the meeting is about. If it could lead to discipline or affect your working conditions, read the Weingarten statement and request a steward. Do not answer questions until the steward is present and you have had time to consult. Do not sign anything until you understand it and have spoken with a steward.
+        </div>
+        <div>
+          <strong>3. Contact a steward right away</strong><br>
+          Call or text Senior Steward Vincent Gonzalez (530) 908-4849, Lester Burden (916) 804-9682, or Joe Gonzales (916) 856-0785. Give them the facts, the date of the incident, and any documents. Do this within a day or two — do not wait.
+        </div>
+        <div>
+          <strong>4. Request the steward file a grievance if needed</strong><br>
+          The steward decides whether a grievance is appropriate and timely under Article XXIII. Provide them everything you have. Use the Grievance Note generator in this app if you want a draft to send them.
+        </div>
+        <div>
+          <strong>5. Follow the grievance steps</strong><br>
+          Step One discussion with the supervisor should happen no later than 5 working days after the event. Written steps follow with short deadlines. Your steward handles the formal process.
+        </div>
+        <div>
+          <strong>6. Keep tracking and stay calm</strong><br>
+          Continue to document any further events. Do not discuss the details of the issue with coworkers in a way that could create problems. Follow any instructions from your steward.
+        </div>
+      </div>
+
+      <div class="success">
+        <strong>Remember:</strong> The steward and the contract are your protection. This app helps you prepare and stay organized, but the steward is the one who represents you.
+      </div>
+
+      <h3 style="margin-top:20px; color:#93c5fd;">Attendance / Tardy Issue Checklist</h3>
+      <ul style="font-size:0.95rem;">
+        <li>Ask for a written list of every occurrence and the exact dates.</li>
+        <li>Check your hire date — the rolling 12-month period can only count time after you started.</li>
+        <li>Verify each point matches the policy chart (tardy = 0.5, no-call = 1, etc.).</li>
+        <li>Note any exceptions that should not have been charged (FMLA, job injury, approved leave, Union business, etc.).</li>
+        <li>Ask whether other employees with similar records received earlier coaching or different treatment.</li>
+        <li>Request the steward review for just cause (Article XXI) and consistent application.</li>
+        <li>Do not accept the point total without verification.</li>
+      </ul>
+
+      <h3 style="margin-top:16px; color:#fbbf24;">What Not to Do</h3>
+      <ul style="font-size:0.95rem;">
+        <li>Do not sign any warning, form, or statement until a steward has reviewed it (or sign only “received, not agreed” if the steward advises).</li>
+        <li>Do not answer investigatory questions without a steward present.</li>
+        <li>Do not discuss the details of your case with management or coworkers without your steward’s guidance.</li>
+        <li>Do not wait days or weeks to contact a steward — timelines are short.</li>
+        <li>Do not assume the company’s point total or version of events is accurate.</li>
+        <li>Do not waive any right under the contract or Weingarten.</li>
+      </ul>
+
+      <button class="action" onclick="show('weingarten')">View Weingarten Statement</button>
+      <button class="action" onclick="show('contacts')">Steward Contacts</button>
+      <button class="action" onclick="show('grievance')">See Full Grievance Steps</button>
+      <button class="action" onclick="show('generator')" style="background:#15803d;">Generate Grievance Note</button>
+    </div>
+  </div>
+
+  <!-- UNION RULES -->
+  <div id="unionrules" class="section">
+    <div class="card">
+      <h2>Union Rules & Member Rights</h2>
+      <p>Key rights and responsibilities for Teamsters Local 150 members at FRC-PIRMI. These come from the IBT Constitution, the LMRDA (Labor-Management Reporting and Disclosure Act), and your CBA. Always contact a steward or the Business Agent for official guidance.</p>
+
+      <div class="article">
+        <h3>Your Core Rights as a Member</h3>
+        <ul>
+          <li>Equal rights to participate in union meetings, vote, and run for office (subject to reasonable rules).</li>
+          <li>Freedom of speech and assembly within the union.</li>
+          <li>The right to a fair hearing before any discipline by the union.</li>
+          <li>Protection against improper discipline or retaliation for exercising your rights.</li>
+          <li>The right to copies of the CBA and union constitution upon request.</li>
+          <li>Weingarten rights during investigatory meetings with management.</li>
+        </ul>
+      </div>
+
+      <div class="article">
+        <h3>Protected Concerted Activity</h3>
+        <p>You have the right to act together with other employees (or alone on behalf of the group) to improve wages, hours, and working conditions. This includes discussing issues with coworkers, bringing concerns to the steward, and participating in union activities. Management cannot retaliate for protected concerted activity.</p>
+      </div>
+
+      <div class="article">
+        <h3>Dues & Union Security</h3>
+        <p>Membership requires timely payment of dues. Failure to pay can result in loss of good standing. Contact Kim Chang at Local 150 for dues questions. Good standing is required to vote, run for office, and receive full union representation in some matters.</p>
+      </div>
+
+      <div class="article">
+        <h3>Stewards & Representation</h3>
+        <p>Stewards are your first line of representation. They have the right to investigate grievances, accompany you in Weingarten meetings, and process grievances under Article XXIII. You should contact a steward promptly when an issue arises.</p>
+      </div>
+
+      <div class="article">
+        <h3>No-Strike Obligation</h3>
+        <p>The CBA prohibits strikes, slowdowns, and work stoppages during its term. Any alleged violation is subject to the grievance procedure and just cause. Do not engage in unauthorized work stoppages. Channel disputes through the steward and the grievance process.</p>
+      </div>
+
+      <div class="article">
+        <h3>How to Stay Involved</h3>
+        <ul>
+          <li>Attend membership meetings.</li>
+          <li>Read the CBA and ask questions.</li>
+          <li>Support other members by directing them to stewards when they have issues.</li>
+          <li>Report any problems with representation to the Business Agent or higher if necessary.</li>
+        </ul>
+      </div>
+
+      <div class="success">
+        <strong>Bottom line:</strong> The union exists to protect you. Use your rights, document issues, and work through your steward. The contract and the grievance procedure are your strongest tools.
+      </div>
+
+      <button class="action" onclick="show('contacts')">Steward & Local Contacts</button>
+      <button class="action" onclick="show('grievance')">Grievance Procedure</button>
+    </div>
+  </div>
+
+  <!-- WEINGARTEN -->
+  <div id="weingarten" class="section">
+    <div class="card">
+      <h2>Weingarten Rights</h2>
+      <p>If a discussion could lead to discipline or affect your working conditions, read this:</p>
+      <div class="weingarten">
+        “If this discussion could in any way lead to my being disciplined or terminated, or affect my personal working condition, I respectfully request that my union representative or steward be present at the meeting. Without representation, I choose not to answer any questions. I further request reasonable time to consult with my union representative regarding the subject and purpose of the meeting. I shall not consent to any searches or tests affecting my person, property, or effects without first consulting with my union representative.”
+      </div>
+      <button class="action" onclick="copyWeingarten()">Copy Statement</button>
+      <p style="font-size:0.85rem; margin-top:12px;">You have the right to a steward. Management must allow reasonable time to consult. Do not waive this right.</p>
+    </div>
+  </div>
+
+  <!-- GRIEVANCE -->
+  <div id="grievance" class="section">
+    <div class="card">
+      <h2>Grievance Procedure (Article XXIII)</h2>
+      <p>A grievance is any dispute over the meaning, interpretation, or application of the Agreement. Working days exclude Saturdays, Sundays, and holidays. Time limits may be extended by mutual consent.</p>
+      <div class="timeline">
+        <div><strong>Step One – Resolution</strong><br>Discuss with immediate supervisor (alone or with Steward) as soon as possible, no later than <strong>5 working days</strong> after the event.</div>
+        <div><strong>Written Grievance</strong><br>If not resolved, a written document is prepared and delivered within the specified time limits (commonly <strong>10 working days</strong> in later steps).</div>
+        <div><strong>Step Two / Step Three</strong><br>Employer responds within set working days. Business Agent may request a meeting. Parties meet and respond within the deadlines.</div>
+        <div><strong>Step Four – Board of Adjustment</strong><br>Two members selected by the Company, two by the Union. Majority vote decides. Board has no authority to change the Agreement.</div>
+        <div><strong>Step Five – Arbitration</strong><br>Either party may request arbitration in writing within <strong>30 calendar days</strong>. Mutually selected arbitrator from an FMCS list of seven. Decision is final and binding.</div>
+      </div>
+      <div class="warning">
+        <strong>Act quickly.</strong> Contact your steward as soon as an issue arises. Do not miss the early deadlines.
+      </div>
+      <button class="action" onclick="show('generator')" style="margin-top:16px; background:#15803d;">Generate Grievance Request Note</button>
+    </div>
+  </div>
+
+  <!-- CONTRACT -->
+  <div id="contract" class="section">
+    <div class="card">
+      <h2>FRC-PIRMI Collective Bargaining Agreement</h2>
+      <p>June 13, 2022 – June 13, 2027. Summaries of key articles based on the contract pages shared. Always refer to the full official document.</p>
+
+      <div class="article">
+        <h3>Article I – Definitions</h3>
+        <p>Covers operations at 845 Kentucky Ave., Woodland, CA. “Employee” means production and maintenance employees (excluding office clerical, guards, professional, and supervisory personnel).</p>
+      </div>
+
+      <div class="article">
+        <h3>Article II – Union Recognition and Cooperation</h3>
+        <p>Employer recognizes the Union as the sole bargaining representative for the unit. The Union has the right to represent members on all terms and conditions of employment. Any performance or attendance expectations must be applied consistently and are subject to just cause and the grievance procedure.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article III – Management Rights</h3>
+        <p>The Company retains certain rights to manage the business, but those rights are limited by the Agreement. Discipline must be for just cause. Rules and changes can be grieved. New or changed jobs require meeting and bargaining with the Union. The Union receives copies of rules.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article IV – No Strike / No Lockout</h3>
+        <p>No strikes, slowdowns, or work stoppages during the term. Any discipline for an alleged unauthorized stoppage is subject to the grievance procedure and just cause. No lockouts.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article V – Non-Discrimination</h3>
+        <p>No unlawful discrimination (including Union membership). Compliance with CFRA, FMLA, and ADA reasonable accommodation.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article VI – Seniority</h3>
+        <p>Seniority is a contractual right that governs job assignment, promotion, layoff, and recall when skill, qualifications, experience, dependability, and ability are equal. Continuous service starts with the latest full-time hire date. The Union can grieve any claim that seniority was improperly ignored. Temporary/seasonal employees are laid off first.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article VII – Temporary and Seasonal Employees</h3>
+        <p>May be used for limited-term needs. They have no seniority and their terminations are not subject to the grievance procedure. If reclassified to regular, seniority dates from reclassification. New regular hires acquire plant seniority after 120 working days; that probation period is contractual and can be enforced by the Union.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article VIII – Safety and Health</h3>
+        <p>Employees are expected to follow safety policies. Safety issues, unsafe conditions, or inconsistent enforcement of safety rules can be raised with a steward and grieved under the contract.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article IX – Hours of Work and Overtime</h3>
+        <p>Normal schedule is typically an 8-hour day / 40-hour week. Reporting pay (4 hours) and callback minimums (4 hours at time-and-a-half) are contractual protections. Overtime is generally 1½× after 8 straight-time hours/day or 40/week (double time in some cases after 12 hours) and is assigned within the department by seniority when skill, ability, and qualifications are equal. Two 10-minute breaks and one 30-minute paid meal for shifts over 5 hours. Changes that affect working conditions can be raised with the Union.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article X – Vacations</h3>
+        <p>1 week after 1 year, 2 weeks starting year 2, 3 weeks at 5 years, 4 weeks at 15 years. Must work 1,250 hours for full entitlement. Preference by seniority. Day-at-a-time option available. Sell-back of up to 40 hours possible.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XI – Leave</h3>
+        <p>Sick leave (updated policy provides no less than 40 hours per year, paid out if unused). Bereavement up to 3 days for immediate family. Jury duty difference pay. Union officials retain seniority on leave.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XIII – Subcontracting</h3>
+        <p>The Company is restricted from contracting out work customarily performed by bargaining-unit employees on the premises. The listed exceptions (lack of skill/experience, tools unavailable, time limits, or insufficient numbers) are limited and can be challenged through the grievance procedure if the Union believes they are being misused.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XIX – Wages</h3>
+        <p>Wage rates by classification and year are set in Exhibit A and are contractual. Shift differentials: Swing $0.30, Midnight $0.40. Any claim that a duty is not reasonable or that the correct rate was not paid can be grieved.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XX – Holidays</h3>
+        <p>Paid holidays include New Year’s Day, President’s Day, Memorial Day, Independence Day, Labor Day, Thanksgiving, Day After Thanksgiving, Christmas Eve, Christmas, New Year’s Eve, plus two personal holidays. Unworked holiday pay requires working scheduled days before and after (or excused).</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XXI – Discharge</h3>
+        <p>Non-probationary employees must receive written notice stating the reason(s) for any discipline or discharge. The employee has the right to grieve under Article XXIII. Discipline must meet just cause standards.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XXII – Representation</h3>
+        <p>Up to four stewards. Names provided in writing to the Company. Regional representatives may be called in. Designated bulletin board for official Union notices.</p>
+      </div>
+
+      <div class="article">
+        <h3>Article XXIV – Duration</h3>
+        <p>Effective June 13, 2022 through June 12, 2027, then year-to-year unless either party gives 60 days’ written notice to amend, modify, or terminate.</p>
+      </div>
+
+      <div class="warning">These are plain-language summaries only. The full written CBA controls. Contact a steward for official interpretation.</div>
+    </div>
+  </div>
+
+  <!-- ATTENDANCE -->
+  <div id="attendance" class="section">
+    <div class="card">
+      <h2>Absenteeism & Tardiness Tracker</h2>
+      <p>The company policy tracks occurrences on a rolling 12-month period. A formal discipline step is supposed to begin only after an employee surpasses the 6th occurrence. You have the right to challenge every point. Contact a steward to verify the count, check for exceptions, and review for just cause. Do not accept the company’s total without verification.</p>
+      <label>Current Occurrences</label>
+      <input type="number" id="currentPoints" step="0.5" min="0" value="0" onchange="updatePoints()">
+      <div class="points" id="pointsDisplay">0</div>
+      <p id="pointsStatus"></p>
+      <h3>Add an Occurrence</h3>
+      <select id="occType">
+        <option value="0.5">Tardy (0.5)</option>
+        <option value="0.5">Leave early – more than ½ shift (0.5)</option>
+        <option value="1">Leave early – less than ½ shift (1)</option>
+        <option value="0.5">Failure to clock in (0.5)</option>
+        <option value="0.5">Late call-in (0.5)</option>
+        <option value="1">No call-in (1)</option>
+        <option value="1">Absence from scheduled shift (1)</option>
+      </select>
+      <button class="action" onclick="addOccurrence()">Add to Total</button>
+      <button class="action" style="background:#374151" onclick="resetPoints()">Reset</button>
+      <div class="card" style="margin-top:16px; background:#0d1117;">
+        <h3>Exceptions (no occurrence charged)</h3>
+        <ul style="font-size:0.9rem;">
+          <li>Approved leave of absence, prearranged day, holiday, bereavement, jury duty, military leave</li>
+          <li>Job-related injury or illness</li>
+          <li>FMLA and other legally required leave</li>
+          <li>Written-approved Union business</li>
+          <li>Disciplinary suspension or other leave approved by management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <div id="contacts" class="section">
+    <div class="card">
+      <h2>FRC-PIRMI Stewards & Contacts</h2>
+      <div class="contact">
+        <strong>Senior Steward Vincent Gonzalez</strong><br>
+        <a href="tel:5309084849">(530) 908-4849</a><br>
+        sixtmix@yahoo.com
+      </div>
+      <div class="contact">
+        <strong>Steward Lester Burden</strong><br>
+        <a href="tel:9168049682">(916) 804-9682</a><br>
+        slojoepapa@gmail.com
+      </div>
+      <div class="contact">
+        <strong>Steward Joe Gonzales</strong><br>
+        <a href="tel:9168560785">(916) 856-0785</a><br>
+        Wakoon2900@gmail.com
+      </div>
+      <div class="contact">
+        <strong>Business Agent Linn Vo</strong><br>
+        Office: <a href="tel:9163917070">(916) 391-7070</a> ext. 41<br>
+        Cell: <a href="tel:5309086649">(530) 908-6649</a><br>
+        linn.local150@yahoo.com
+      </div>
+      <div class="contact">
+        <strong>Union Dues – Kim Chang</strong><br>
+        (916) 392-7070 ext. 38
+      </div>
+      <div class="contact">
+        <strong>Benefits Coordinator – Candace McLaughlin</strong><br>
+        (916) 392-7070 ext. 12<br>
+        cmclaughlin@teamsters150.org
+      </div>
+      <p style="font-size:0.85rem;">Local 150 Office: 7120 East Parkway, Sacramento, CA 95823 • (916) 392-7070</p>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div id="leadership" class="section">
+    <div class="card">
+      <h2>Local 150 Leadership & Office</h2>
+      <p>Main office is the front desk for most matters. Start with your steward or Business Agent for workplace issues. Call the main number and ask for the right person if you need someone higher up.</p>
+
+      <div class="contact">
+        <strong>Main Office / Front Desk</strong><br>
+        7120 East Parkway, Sacramento, CA 95823<br>
+        <a href="tel:9163927070">(916) 392-7070</a><br>
+        Fax: (916) 392-7675<br>
+        Office hours typically 8 a.m.–Noon & 1 p.m.–5 p.m., Monday–Friday
+      </div>
+
+      <div class="contact">
+        <strong>Dale Wentz — Secretary-Treasurer (Principal Officer)</strong><br>
+        Top elected officer of Local 150<br>
+        <a href="tel:9163927070">(916) 392-7070</a>
+      </div>
+
+      <div class="contact">
+        <strong>Amber Williams — President</strong><br>
+        <a href="tel:9163927070">(916) 392-7070</a>
+      </div>
+
+      <div class="contact">
+        <strong>DeShawn Francis — Vice President</strong><br>
+        <a href="tel:9163927070">(916) 392-7070</a>
+      </div>
+
+      <div class="contact">
+        <strong>Dennis Lewis — Recording Secretary</strong><br>
+        <a href="tel:9163927070">(916) 392-7070</a>
+      </div>
+
+      <h3 style="margin-top:18px;">Business Agents (including FRC-PIRMI)</h3>
+      <div class="contact">
+        <strong>Linn Vo — Business Agent (FRC-PIRMI)</strong><br>
+        Office: <a href="tel:9163917070">(916) 391-7070</a> ext. 41<br>
+        Cell: <a href="tel:5309086649">(530) 908-6649</a><br>
+        linn.local150@yahoo.com
+      </div>
+      <div class="contact">
+        <strong>Other Business Agents</strong><br>
+        Jesus Sanders, Ron Cannizzaro, Conor Tobin, Matt Andrakowicz, Doug Secord, Matthew McKinley, Manuel Garcia, Rocio Richards, Florida Fabian, and others<br>
+        Call the main office and ask for the Business Agent for your industry or location.
+      </div>
+
+      <h3 style="margin-top:18px;">Office Staff</h3>
+      <div class="contact">
+        <strong>Kim Chang — Dues / Clerical</strong><br>
+        <a href="tel:9163927070">(916) 392-7070</a> ext. 38
+      </div>
+      <div class="contact">
+        <strong>Candace McLaughlin — Benefits Coordinator</strong><br>
+        <a href="tel:9163927070">(916) 392-7070</a> ext. 12<br>
+        cmclaughlin@teamsters150.org
+      </div>
+      <div class="contact">
+        <strong>Tami Chan — Office Manager / Bookkeeper</strong><br>
+        Call the main office
+      </div>
+
+      <div class="success" style="margin-top:16px;">
+        For most plant issues, start with your Senior Steward Vincent Gonzalez or Business Agent Linn Vo. Use the main office if you need to reach officers or other staff.
+      </div>
+    </div>
+  </div>
+
+  <!-- DUES & BENEFITS -->
+  <div id="dues" class="section">
+    <div class="card">
+      <h2>Union Dues & Benefits</h2>
+      <p>Your dues fund the representation, contract enforcement, and services that protect your job and working conditions. Contact Kim Chang at the Local for your exact amount or any dues questions.</p>
+
+      <div class="article">
+        <h3>How Dues Are Calculated & Taken Out</h3>
+        <ul>
+          <li>Local 150 regular monthly dues are calculated as <strong>2.5 times your base hourly rate</strong>.</li>
+          <li>According to federal filings, there is a minimum of about $264 per year and a maximum of about $2,472 per year, plus possible additional working dues ($312–$420 per year in some cases).</li>
+          <li>New members may also pay a one-time initiation fee (historically in the $200–$325 range).</li>
+          <li>Dues are normally deducted automatically from your paycheck (check-off) and remitted to the Local once you are a member in good standing.</li>
+          <li>You must stay current on dues to remain in good standing. Good standing is generally required to vote, run for office, and receive full representation rights in some matters.</li>
+        </ul>
+        <p style="font-size:0.9rem;">Example: At a $32/hour base rate, monthly dues are approximately $80 before any adjustments or additional assessments. Confirm your exact amount with Kim Chang at the Local — rates can vary and must be verified.</p>
+      </div>
+
+      <div class="article">
+        <h3>Membership Requirements</h3>
+        <ul>
+          <li>Complete any required application or initiation process with the Local.</li>
+          <li>Pay initiation fee (if applicable) and stay current on monthly dues.</li>
+          <li>Maintain good standing by paying dues on time.</li>
+          <li>Members in good standing have the right to participate in meetings, vote, and access full representation.</li>
+        </ul>
+        <p>For the current initiation fee, exact dues scale, or membership questions, contact the Local office or Kim Chang at (916) 392-7070 ext. 38.</p>
+      </div>
+
+      <div class="article">
+        <h3>Official Local 150 Website</h3>
+        <p><a href="https://www.teamsters150.org" target="_blank" rel="noopener">www.teamsters150.org</a></p>
+        <p>Visit the official site for meeting schedules, news, and additional member resources.</p>
+      </div>
+
+      <div class="article">
+        <h3>What Your Dues Pay For</h3>
+        <ul>
+          <li>Business Agents and stewards who negotiate and enforce your contract</li>
+          <li>Grievance and arbitration representation</li>
+          <li>Legal support and contract administration</li>
+          <li>Local office operations and member services</li>
+          <li>Per-capita payments to the International and Joint Council that support broader organizing and political efforts on behalf of workers</li>
+          <li>Training, meetings, and member education</li>
+        </ul>
+      </div>
+
+      <div class="article">
+        <h3>Benefits of Union Membership at FRC-PIRMI</h3>
+        <ul>
+          <li><strong>Contract protections</strong> — Just cause for discipline, seniority rights, grievance procedure, and limits on management rights.</li>
+          <li><strong>Wages</strong> — Negotiated rates and annual increases under Exhibit A, plus shift differentials.</li>
+          <li><strong>Health & Welfare</strong> — Access to negotiated medical, dental, and related benefits (employer contributions apply under the CBA). Contact Candace McLaughlin for details.</li>
+          <li><strong>Pension / Retirement</strong> — Opportunities to participate in Teamsters pension plans where the contract provides them (Western Conference of Teamsters Pension Trust in many units).</li>
+          <li><strong>Representation</strong> — Stewards and Business Agents on the job and in discipline or contract issues.</li>
+          <li><strong>Weingarten rights</strong> and protected concerted activity.</li>
+          <li><strong>Sick leave, holidays, vacations, and other contractual benefits</strong> that are enforceable through the grievance procedure.</li>
+        </ul>
+      </div>
+
+      <div class="success">
+        The value of membership is the contract, the right to a steward, and the ability to enforce your rights. Dues keep that system running. For the exact current dues amount on your check or any billing questions, call Kim Chang at (916) 392-7070 ext. 38.
+      </div>
+
+      <button class="action" onclick="show('contacts')">Steward & Office Contacts</button>
+      <button class="action" onclick="show('contract')">View Contract Rights</button>
+    </div>
+  </div>
+
+  <!-- RATINGS -->
+  <div id="ratings" class="section">
+    <div class="card">
+      <h2>Rate Management (Private)</h2>
+      <p>Document supervisor or manager behavior for your own records. This stays on your phone only and is not shared. Use it to track patterns that may support a grievance or Weingarten request.</p>
+
+      <div class="warning">
+        This is a private personal log. Do not use it as a public review or to harass anyone. Keep notes factual and related to work issues.
+      </div>
+
+      <label>Supervisor / Manager Name</label>
+      <input type="text" id="rateName" placeholder="Name and title">
+
+      <label>Rating</label>
+      <select id="rateScore">
+        <option value="5">5 - Professional & Fair</option>
+        <option value="4">4 - Mostly Fair</option>
+        <option value="3">3 - Inconsistent</option>
+        <option value="2">2 - Problematic</option>
+        <option value="1">1 - Hostile / Unfair</option>
+      </select>
+
+      <label>Notes (facts only)</label>
+      <textarea id="rateNotes" rows="4" placeholder="Date, what happened, witnesses, contract issues..."></textarea>
+
+      <button class="action" onclick="saveRating()">Save Private Rating</button>
+
+      <div id="ratingsList" style="margin-top:18px;"></div>
+
+      <button class="action" style="background:linear-gradient(135deg,#5c4033,#8b7355); margin-top:8px;" onclick="clearRatings()">Clear All Ratings</button>
+    </div>
+  </div>
+
+  <!-- GENERATOR -->
+  <div id="generator" class="section">
+    <div class="card">
+      <h2>Generate Grievance Request Note</h2>
+      <p>Fill this out and send to your steward. This is a starting draft only — your steward will decide the final wording and whether it is timely.</p>
+      <label>Your Name</label>
+      <input type="text" id="empName" placeholder="George Jones">
+      <label>Date of Warning / Incident</label>
+      <input type="text" id="incDate" placeholder="10/12/26 for incident on 10/06/26">
+      <label>Brief Description of the Issue</label>
+      <textarea id="incDesc" rows="3" placeholder="Written warning for late return from lunch. Form lists 8.5 occurrences..."></textarea>
+      <label>Hire Date (important if less than 1 year)</label>
+      <input type="text" id="hireDate" placeholder="MM/DD/YYYY">
+      <label>Main Concerns / Grounds</label>
+      <textarea id="concerns" rows="4" placeholder="Rolling 12-month calculation accuracy, just cause under Article XXI, consistency of application, earlier communication..."></textarea>
+      <label>Steward Name (optional)</label>
+      <input type="text" id="stewardName" placeholder="Vincent">
+      <button class="action" onclick="generateNote()">Generate Note</button>
+      <textarea id="outputNote" rows="14" readonly style="margin-top:12px; display:none;"></textarea>
+      <button class="action" id="copyNoteBtn" style="display:none;" onclick="copyNote()">Copy Note</button>
+    </div>
+  </div>
+
+  <!-- SCENARIOS -->
+  <div id="scenarios" class="section">
+    <div class="card">
+      <h2>Common Scenarios</h2>
+      <p>Quick guidance for frequent issues. Always contact a steward for representation.</p>
+
+      <div class="article">
+        <h3>Called into an Investigatory Meeting</h3>
+        <p>Ask what the meeting is about. If it could lead to discipline, read the Weingarten statement and request a steward. Do not answer questions until the steward is present. Do not sign anything until reviewed.</p>
+        <button class="action" onclick="show('weingarten')">Open Weingarten Statement</button>
+      </div>
+
+      <div class="article">
+        <h3>Received a Written Warning</h3>
+        <p>Document the date and content. Contact a steward the same day. Request they review for just cause, proper counting of points, and consistency. Use the Grievance Note generator if helpful. Do not wait — timelines are short.</p>
+        <button class="action" onclick="show('generator')">Generate Grievance Note</button>
+      </div>
+
+      <div class="article">
+        <h3>Overtime Denied or Improperly Assigned</h3>
+        <p>OT is generally assigned within the department by seniority when skill, ability, and qualifications are equal. Document the date, who was assigned, and your seniority. Raise it with a steward promptly so it can be grieved if needed.</p>
+      </div>
+
+      <div class="article">
+        <h3>Unsafe Condition</h3>
+        <p>Report it immediately to your supervisor and a steward. Document the hazard, date, and who you told. Safety issues and inconsistent enforcement can be grieved. Do not continue working if the condition presents an immediate serious risk.</p>
+        <button class="action" onclick="show('safety')">View Safety Rules</button>
+      </div>
+
+      <div class="article">
+        <h3>Workplace Injury</h3>
+        <p>If you are hurt at work:</p>
+        <ul>
+          <li>Get medical attention immediately if needed. Tell the provider it is a work-related injury.</li>
+          <li>Report the injury to your supervisor as soon as possible and request that an incident report be completed.</li>
+          <li>Document everything — date, time, how it happened, witnesses, and any unsafe conditions that contributed.</li>
+          <li>Contact a steward the same day. Safety issues and how the company handles injuries can be grieved.</li>
+          <li>You may have workers’ compensation rights. Do not sign any statements or releases without understanding them and, when appropriate, speaking with a steward or the Business Agent.</li>
+          <li>Job-related injuries are generally not charged as attendance occurrences under the absenteeism policy.</li>
+        </ul>
+        <p>Do not continue working if you are injured or if the condition remains unsafe. Contact a steward right away.</p>
+        <button class="action" onclick="show('safety')">View Safety Rules</button>
+        <button class="action" onclick="show('contacts')">Call a Steward</button>
+      </div>
+
+      <div class="article">
+        <h3>Attendance Points Disputed</h3>
+        <p>Ask for the written list of every occurrence and date. Verify your hire date (rolling 12-month window starts after you began). Check for exceptions. Contact a steward to review the count and just cause before accepting the total.</p>
+        <button class="action" onclick="show('attendance')">Open Attendance Tracker</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAGES -->
+  <div id="wages" class="section">
+    <div class="card">
+      <h2>Wage & Classification Lookup</h2>
+      <p>Rates from Exhibit A of the 2022–2027 CBA. Shift differentials: Swing +$0.30, Midnight +$0.40. These rates are contractual. If you believe you are being paid the wrong rate or classification, document it and contact a steward immediately — underpayment can be grieved.</p>
+      <label>Select Classification</label>
+      <select id="wageClass" onchange="showWage()">
+        <option value="">-- Choose --</option>
+        <option value="packaging">Packaging / Line Operator</option>
+        <option value="mill">Mill</option>
+        <option value="dryer">Dryer</option>
+        <option value="finished">Finished Goods</option>
+        <option value="maintenance">Maintenance</option>
+        <option value="extrusion">Extrusion</option>
+      </select>
+      <div id="wageResult" style="margin-top:12px;"></div>
+      <p style="font-size:0.85rem; margin-top:16px;">Rates increase annually on the anniversary of the agreement. Contact a steward or the Business Agent for the official Exhibit A table if your classification is not listed or you need the precise current rate.</p>
+    </div>
+  </div>
+
+  <!-- SAFETY -->
+  <div id="safety" class="section">
+    <div class="card">
+      <h2>Safety & Golden Rules</h2>
+      <p>Violations of the Golden Rules can lead to immediate serious discipline up to termination. All safety issues can be raised with a steward and grieved.</p>
+      <h3>Golden Safety Rules</h3>
+      <ul>
+        <li>Lockout / Tagout — Never bypass or work on equipment without proper lockout.</li>
+        <li>Confined Space — Follow all entry procedures and permits.</li>
+        <li>Fall Protection — Use required fall protection above the specified height.</li>
+        <li>Elevators — Do not use freight elevators for passenger transport unless authorized.</li>
+        <li>Hot Work — Obtain and follow hot-work permits.</li>
+        <li>Smoke Free — No smoking except in designated areas.</li>
+      </ul>
+      <h3>Other Key Rules</h3>
+      <ul>
+        <li>Hard hat and required PPE at all times in production areas.</li>
+        <li>Report all injuries and near-misses immediately.</li>
+        <li>Do not operate equipment you are not trained and authorized to use.</li>
+        <li>Keep work areas clean; correct or report hazards.</li>
+      </ul>
+      <div class="warning">If a condition is unsafe, stop, report it, and contact a steward. Do not accept pressure to ignore safety rules. If you are injured, report it immediately, seek medical care, document everything, and call a steward the same day. Job-related injuries are generally not charged as attendance occurrences.</div>
+    </div>
+  </div>
+
+  <!-- BREAKS -->
+  <div id="breaks" class="section">
+    <div class="card">
+      <h2>Rest Break & Meal Period Rules</h2>
+      <p>These are contractual and California labor standards. Denial or interruption of breaks can be grieved.</p>
+      <ul>
+        <li><strong>Rest breaks:</strong> Two paid 10-minute breaks for shifts over 5 hours (generally one in the first half, one in the second half).</li>
+        <li><strong>Meal period:</strong> One 30-minute paid meal for shifts over 5 hours. Clock out and back in as required.</li>
+        <li><strong>Second meal:</strong> If the shift exceeds 10 hours, a second meal period may apply unless waived in writing.</li>
+        <li>You are entitled to take your full break/meal time. Returning late is tracked under the attendance policy — plan accordingly.</li>
+        <li>If a break is denied, interrupted, or you are pressured not to take it, document it and tell a steward the same day.</li>
+      </ul>
+      <div class="success">Breaks are a protected right. Do not waive them under pressure. Contact a steward if they are denied.</div>
+    </div>
+  </div>
+
+  <!-- DRUG -->
+  <div id="drug" class="section">
+    <div class="card">
+      <h2>Drug & Alcohol Testing Triggers</h2>
+      <p>Summary of the plant policy. Marijuana is treated as illegal under federal law even if legal in California. Testing and discipline remain subject to just cause and the grievance procedure.</p>
+      <h3>When testing may occur</h3>
+      <ul>
+        <li>Post-offer (pre-employment) for new hires.</li>
+        <li>Reasonable suspicion (observable signs of impairment).</li>
+        <li>Post-incident or after certain accidents.</li>
+        <li>Return-to-duty or follow-up under a last-chance agreement.</li>
+      </ul>
+      <h3>Member protections</h3>
+      <ul>
+        <li>You may request a steward if the discussion could lead to discipline.</li>
+        <li>Prescription medication: disclose as required; a valid prescription is generally a defense if used as directed.</li>
+        <li>Positive tests and resulting discipline can be grieved under just cause.</li>
+        <li>Do not consent to a test or sign any acknowledgment without understanding it and, when appropriate, speaking with a steward.</li>
+      </ul>
+      <div class="warning">If asked to test, contact a steward immediately. Document the circumstances of the request.</div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div id="notes" class="section">
+    <div class="card">
+      <h2>Private Incident Notes</h2>
+      <p>These notes stay only on this device (browser local storage). They are not sent anywhere and are private to you. Use them to keep a clear record so you can give accurate information to your steward. Delete them when you no longer need them.</p>
+      <label>Date</label>
+      <input type="text" id="noteDate" placeholder="MM/DD/YY">
+      <label>What happened</label>
+      <textarea id="noteText" rows="4" placeholder="Brief description, who was involved, witnesses..."></textarea>
+      <button class="action" onclick="saveNote()">Save Note</button>
+      <div id="notesList" style="margin-top:16px;"></div>
+      <button class="action" style="background:#374151; margin-top:8px;" onclick="clearNotes()">Clear All Notes</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Teamsters Local 150 FRC-PIRMI Member Guide • For information only • Always work with your steward<br>
+  Based on the 2022–2027 CBA and plant policies. Not a substitute for the official documents or representation.
+</footer>
+
+<script>
+function saveRating() {
+  const name = document.getElementById('rateName').value.trim();
+  const score = document.getElementById('rateScore').value;
+  const notes = document.getElementById('rateNotes').value.trim();
+  if (!name) { alert('Enter a name'); return; }
+  const ratings = JSON.parse(localStorage.getItem('mgmtRatings') || '[]');
+  ratings.unshift({ name, score, notes, date: new Date().toLocaleDateString() });
+  localStorage.setItem('mgmtRatings', JSON.stringify(ratings));
+  document.getElementById('rateName').value = '';
+  document.getElementById('rateNotes').value = '';
+  loadRatings();
+}
+
+function loadRatings() {
+  const ratings = JSON.parse(localStorage.getItem('mgmtRatings') || '[]');
+  const list = document.getElementById('ratingsList');
+  if (!list) return;
+  if (ratings.length === 0) {
+    list.innerHTML = '<p style="color:#8a8478;">No private ratings saved yet.</p>';
+    return;
+  }
+  list.innerHTML = ratings.map(r => `
+    <div class="contact">
+      <strong>${r.name}</strong> — Rating: ${r.score}/5<br>
+      <small>${r.date}</small><br>
+      ${r.notes ? r.notes.replace(/\n/g, '<br>') : ''}
+    </div>
+  `).join('');
+}
+
+function clearRatings() {
+  if (confirm('Delete all private ratings from this device?')) {
+    localStorage.removeItem('mgmtRatings');
+    loadRatings();
+  }
+}
+
+// Load ratings when section is shown
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const buttons = document.querySelectorAll('nav button');
+  buttons.forEach(btn => {
+    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes("'" + id + "'")) {
+      btn.classList.add('active');
+    }
+  });
+  window.scrollTo(0,0);
+  if (id === 'ratings') loadRatings();
+}
+
+function copyWeingarten() {
+  const text = document.querySelector('.weingarten').innerText;
+  navigator.clipboard.writeText(text).then(() => alert('Weingarten statement copied!'));
+}
+
+function updatePoints() {
+  const pts = parseFloat(document.getElementById('currentPoints').value) || 0;
+  document.getElementById('pointsDisplay').textContent = pts;
+  const status = document.getElementById('pointsStatus');
+  if (pts > 6) {
+    status.innerHTML = '<div class="warning">Above 6 occurrences — contact a steward immediately to review the count, exceptions, and just cause. Do not accept this total without verification.</div>';
+  } else if (pts >= 4) {
+    status.innerHTML = '<div style="background:#78350f;padding:10px;border-radius:8px;">Approaching the 6th occurrence. Document everything and speak with a steward so the count can be verified early.</div>';
+  } else {
+    status.innerHTML = '<div class="success">Under the formal discipline threshold. Still keep your own records and contact a steward if any point is charged that you believe is incorrect.</div>';
+  }
+}
+
+function addOccurrence() {
+  const select = document.getElementById('occType');
+  const add = parseFloat(select.value);
+  const current = parseFloat(document.getElementById('currentPoints').value) || 0;
+  document.getElementById('currentPoints').value = (current + add).toFixed(1);
+  updatePoints();
+}
+
+function resetPoints() {
+  document.getElementById('currentPoints').value = 0;
+  updatePoints();
+}
+
+function generateNote() {
+  const name = document.getElementById('empName').value || '[Your Name]';
+  const date = document.getElementById('incDate').value || '[Date of incident/warning]';
+  const desc = document.getElementById('incDesc').value || '[Description of the issue]';
+  const hire = document.getElementById('hireDate').value;
+  const concerns = document.getElementById('concerns').value || '[List your specific concerns]';
+  const steward = document.getElementById('stewardName').value || 'Vincent';
+
+  let note = `${steward},\n\nI am requesting that a grievance be filed on my behalf under Article XXIII of the FRC-PIRMI Teamsters agreement regarding the following matter:\n\n`;
+  note += `Date / Incident: ${date}\n`;
+  note += `Description: ${desc}\n\n`;
+  note += `Grounds for the grievance:\n`;
+  if (hire) {
+    note += `- My hire date is ${hire}. I have not yet completed one full year of employment. Please verify that the rolling 12-month occurrence calculation under the Absenteeism and Tardiness Policy correctly starts from my actual hire date and that every listed occurrence falls within a valid window.\n`;
+  }
+  note += `- ${concerns}\n\n`;
+  note += `Please review the warning or related documents and advise on next steps, including whether a grievance is still timely under Article XXIII and how I should handle any signature line on the form.\n\n`;
+  note += `Thank you,\n${name}`;
+
+  const out = document.getElementById('outputNote');
+  out.value = note;
+  out.style.display = 'block';
+  document.getElementById('copyNoteBtn').style.display = 'block';
+}
+
+function copyNote() {
+  const text = document.getElementById('outputNote').value;
+  navigator.clipboard.writeText(text).then(() => alert('Grievance note copied!'));
+}
+
+function showWage() {
+  const sel = document.getElementById('wageClass').value;
+  const result = document.getElementById('wageResult');
+  const rates = {
+    packaging: "Packaging / Line Operator — Refer to Exhibit A for your progression year. Typical range increases annually. Shift differentials apply.",
+    mill: "Mill — See Exhibit A for exact rate by year. Contact steward for current table.",
+    dryer: "Dryer — See Exhibit A. Rates progress by years of service under the agreement.",
+    finished: "Finished Goods — Exhibit A rates apply. Confirm classification with payroll if unsure.",
+    maintenance: "Maintenance — Higher skilled rates in Exhibit A. Shift differentials apply.",
+    extrusion: "Extrusion — Exhibit A rates. Verify your current step with the official table."
+  };
+  result.innerHTML = sel ? `<div class="success">${rates[sel]}</div><p style="font-size:0.85rem;">For the precise dollar amount, ask your steward or Business Agent for the current Exhibit A wage table.</p>` : "";
+}
+
+function saveNote() {
+  const date = document.getElementById('noteDate').value || new Date().toLocaleDateString();
+  const text = document.getElementById('noteText').value.trim();
+  if (!text) { alert("Enter a description first."); return; }
+  let notes = JSON.parse(localStorage.getItem('teamsterNotes') || '[]');
+  notes.unshift({ date, text, id: Date.now() });
+  localStorage.setItem('teamsterNotes', JSON.stringify(notes));
+  document.getElementById('noteText').value = "";
+  loadNotes();
+}
+
+function loadNotes() {
+  const list = document.getElementById('notesList');
+  const notes = JSON.parse(localStorage.getItem('teamsterNotes') || '[]');
+  if (!notes.length) { list.innerHTML = "<p style='color:#94a3b8;'>No notes saved yet.</p>"; return; }
+  list.innerHTML = notes.map(n => `<div class="contact" style="margin-bottom:8px;"><strong>${n.date}</strong><br>${n.text}</div>`).join('');
+}
+
+function clearNotes() {
+  if (confirm("Delete all private notes from this device?")) {
+    localStorage.removeItem('teamsterNotes');
+    loadNotes();
+  }
+}
+
+// Load notes when the section is shown
+const originalShow = show;
+show = function(id) {
+  originalShow(id);
+  if (id === 'notes') loadNotes();
+};
+
+updatePoints();
+</script>
+</body>
+</html>
